@@ -1,0 +1,23 @@
+package com.secretsanta.service;
+
+import com.secretsanta.model.Employee;
+import java.io.*;
+import java.util.*;
+
+public class CsvParser {
+    
+    public List<Employee> parseEmployeeFile(String filePath) throws IOException {
+        List<Employee> employees = new ArrayList<>();
+        BufferedReader br = new BufferedReader(new FileReader(filePath));
+        String line;
+
+        br.readLine(); // Skip header
+        while ((line = br.readLine()) != null) {
+            String[] data = line.split(",");
+            employees.add(new Employee(data[0].trim(), data[1].trim()));
+        }
+        br.close();
+        return employees;
+    }
+}
+

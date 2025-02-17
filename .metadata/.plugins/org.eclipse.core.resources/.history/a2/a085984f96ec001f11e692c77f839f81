@@ -1,0 +1,5 @@
+package com.secretsanta.model;
+
+public class Employee {
+
+}
